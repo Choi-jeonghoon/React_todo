@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import TodoTemplate from './components/TodoTemplate';
 
 function App() {
-  const [todos, seTodos] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       text: '리엑트의 기초 학습',
@@ -21,9 +21,25 @@ function App() {
       checked: false,
     },
   ]);
+  //고윳값으로 사양될 id
+  //ref를 사용하여 변수 담기
+  const nextId = useRef(4);
+
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      };
+      setTodos(todos.concat(todo));
+      nextId.current += 1; //next 1씩 더하기
+    },
+    [todos],
+  );
   return (
     <TodoTemplate>
-      <TodoInsert />
+      <TodoInsert onInsert={onInsert} />
       <TodoList todos={todos} />
     </TodoTemplate>
   );

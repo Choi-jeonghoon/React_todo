@@ -24,13 +24,14 @@ const App = () => {
 
   const onInsert = useCallback(text => {
     const todo = {
-      id: nextId.current,
+      // id: nextId.current,
+      id: nextId,
       text,
       checked: false,
     };
     setTodos(todos => todos.concat(todo));
     nextId.current += 1; // nextId 1 씩 더하기
-  }, []);
+  }, [setTodos]);
 
   const onRemove = useCallback(id => {
     setTodos(todos => todos.filter(todo => todo.id !== id));

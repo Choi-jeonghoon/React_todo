@@ -1,8 +1,8 @@
-// TodoListItem-virtualized 추가
 .TodoListItem-virtualized {
   & + & {
     border-top: 1px solid #dee2e6;
   }
+
   &:nth-child(even) {
     background: #f8f9fa;
   }
@@ -13,18 +13,12 @@
   display: flex;
   align-items: center; // 세로 중앙 정렬
 
-  // TodoListItem-virtualized로 옮김
-  // &:nth-child(even) {
-  //   // 짝수 순서만 배경색 변경
-  //   background: #f8f9fa;
-  // }
-
-
   .checkbox {
     cursor: pointer;
-    flex: 1; // 차지할 수 있는 영역 모두 차지
+    flex: 1; //차지할 수 있는 영역 모두 차지
     display: flex;
-    align-items: center; // 세로 중앙 정렬
+    align-items: center; //세로 중앙정렬
+
     svg {
       //아이콘
       font-size: 1.5rem;
@@ -32,13 +26,13 @@
 
     .text {
       margin-left: 0.5rem;
-      flex: 1; // 차지할 수 있는 영역 모두 차지
+      flex: 1; //차지할수있는 영역 모두 차지
     }
 
-    // 체크되었을 때 보여 줄 스타일
+    //체크되었을때 보여 줄 스타일
     &.checked {
       svg {
-        color: #22b7cf;
+        color: #22b8cf;
       }
       .text {
         color: #adb5bd;
@@ -47,6 +41,7 @@
     }
   }
 
+  //지우는 아이콘에 대한 속성
   .remove {
     display: flex;
     align-items: center;
@@ -57,9 +52,4 @@
       color: #ff8787;
     }
   }
-
-  // TodoListItem-virtualized로 옮김
-  // & + & {
-  //   border-top: 1px solid #dee2e6;
-  // }
 }
